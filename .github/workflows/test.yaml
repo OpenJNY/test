@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: check environment WORKSPACE_ID
-      run: echo "$PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID"
+      run: 'echo "$PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID | base64'
       env:
         PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID: ${{ secrets.MONITOR_WORKSPACE_ID }}
     - name: check environment WORKSPACE_KEY
