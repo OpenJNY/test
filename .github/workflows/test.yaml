@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: check environment WORKSPACE_ID
+      run: echo "$PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID"
+      env:
+        PSRULE_CONFIGURATION_MONITOR_WORKSPACE_ID: ${{ secrets.MONITOR_WORKSPACE_ID }}:
+    - name: check environment WORKSPACE_KEY
+      run: echo "$PSRULE_CONFIGURATION_MONITOR_WORKSPACE_KEY"
+      env:
+        PSRULE_CONFIGURATION_MONITOR_WORKSPACE_KEY: ${{ secrets.MONITOR_WORKSPACE_KEY }}
